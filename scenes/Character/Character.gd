@@ -70,20 +70,20 @@ func _physics_process(delta: float) -> void:
 	
 	moveset.validate_moves()
 	
-	if fsm.get_current_node() == "IDLE":
-		if was_input_down("punch"):
-			add_input("null")
-			fsm.travel("PUNCH")
-	
-	if fsm.get_current_node() == "PUNCH":
-		if was_input_down("punch"):
-			add_input("null")
-			fsm.travel("DOUBLE_PUNCH")
-	
-	if fsm.get_current_node() == "DOUBLE_PUNCH":
-		if was_input_down("punch"):
-			add_input("null")
-			fsm.travel("TRIPLE_PUNCH")
+#	if fsm.get_current_node() == "IDLE":
+#		if was_input_down("punch"):
+#			add_input("null")
+#			fsm.travel("PUNCH")
+#
+#	if fsm.get_current_node() == "PUNCH":
+#		if was_input_down("punch"):
+#			add_input("null")
+#			fsm.travel("DOUBLE_PUNCH")
+#
+#	if fsm.get_current_node() == "DOUBLE_PUNCH":
+#		if was_input_down("punch"):
+#			add_input("null")
+#			fsm.travel("TRIPLE_PUNCH")
 
 
 func poll_inputs():

@@ -18,7 +18,7 @@ func start():
 	character.add_input("null")
 	character.fsm.travel("KICK")
 
-func _physics_process(delta: float) -> void:
-	for area in hitbox.get_overlapping_areas():
-		if area.is_in_group("TYPE_HURTBOX"):
-			area.get_parent().hit()
+# Call via animation every frame that the hitbox should actually hit.
+func hit():
+	for area in hitbox.get_hit():
+		area.get_parent().hit(10)

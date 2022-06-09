@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://paint.net/maemi.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Hitbox/Hitbox.tscn" type="PackedScene" id=2]
@@ -12,12 +12,20 @@
 [ext_resource path="res://scenes/Character/Moveset.gd" type="Script" id=10]
 [ext_resource path="res://scenes/Character/PUNCH.gd" type="Script" id=11]
 [ext_resource path="res://scenes/Character/KICK.gd" type="Script" id=12]
+[ext_resource path="res://scenes/Character/DOUBLE_PUNCH.gd" type="Script" id=13]
+[ext_resource path="res://scenes/Character/TRIPLE_PUNCH.gd" type="Script" id=14]
 
 [sub_resource type="CapsuleShape2D" id=32]
 radius = 16.0
 height = 120.0
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 80.5, 41.5 )
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 80.5, 41.5 )
+
+[sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 80.5, 41.5 )
 
 [sub_resource type="RectangleShape2D" id=7]
@@ -111,17 +119,19 @@ tracks/6/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 3, 2, 1, 0 ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Flip/Moveset/PUNCH/Hitbox/Collider:disabled")
+tracks/7/type = "method"
+tracks/7/path = NodePath("Flip/Moveset/DOUBLE_PUNCH")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.0999999, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 0.198 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -213,30 +223,6 @@ tracks/6/keys = {
 "update": 1,
 "values": [ 1 ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Flip/Moveset/KICK/Hitbox/Collider:disabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Flip/Moveset/PUNCH/Hitbox/Collider:disabled")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=4]
 resource_name = "PUNCH"
@@ -326,17 +312,19 @@ tracks/6/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0 ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Flip/Moveset/KICK/Hitbox/Collider:disabled")
+tracks/7/type = "method"
+tracks/7/path = NodePath("Flip/Moveset/KICK")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.166667, 0.533333 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 0.198 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -427,17 +415,19 @@ tracks/6/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 3, 2, 1, 0 ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Flip/Moveset/PUNCH/Hitbox/Collider:disabled")
+tracks/7/type = "method"
+tracks/7/path = NodePath("Flip/Moveset/PUNCH")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.0999999, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 0.198 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -586,30 +576,6 @@ tracks/11/keys = {
 "update": 0,
 "values": [ Vector2( 1, 0 ) ]
 }
-tracks/12/type = "value"
-tracks/12/path = NodePath("Flip/Moveset/PUNCH/Hitbox/Collider:disabled")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("Flip/Moveset/KICK/Hitbox/Collider:disabled")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=31]
 resource_name = "TRIPLE_PUNCH"
@@ -699,17 +665,19 @@ tracks/6/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 3, 2, 1, 0 ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Flip/Moveset/PUNCH/Hitbox/Collider:disabled")
+tracks/7/type = "method"
+tracks/7/path = NodePath("Flip/Moveset/TRIPLE_PUNCH")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.133333, 0.396 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 0.198 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=20]
@@ -766,7 +734,7 @@ states/TRIPLE_PUNCH/node = SubResource( 21 )
 states/TRIPLE_PUNCH/position = Vector2( 574, 307 )
 transitions = [ "IDLE", "PUNCH", SubResource( 12 ), "IDLE", "KICK", SubResource( 13 ), "KICK", "IDLE", SubResource( 15 ), "PUNCH", "DOUBLE_PUNCH", SubResource( 22 ), "DOUBLE_PUNCH", "TRIPLE_PUNCH", SubResource( 23 ), "TRIPLE_PUNCH", "IDLE", SubResource( 25 ), "PUNCH", "IDLE", SubResource( 27 ), "DOUBLE_PUNCH", "IDLE", SubResource( 28 ) ]
 start_node = "IDLE"
-graph_offset = Vector2( -60, 208.136 )
+graph_offset = Vector2( -60, 83 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
@@ -805,6 +773,24 @@ script = ExtResource( 11 )
 position = Vector2( 81.5, -158.5 )
 shape = SubResource( 2 )
 
+[node name="DOUBLE_PUNCH" type="Node2D" parent="Flip/Moveset"]
+script = ExtResource( 13 )
+
+[node name="Hitbox" parent="Flip/Moveset/DOUBLE_PUNCH" groups=["PUNCH"] instance=ExtResource( 2 )]
+
+[node name="Collider" parent="Flip/Moveset/DOUBLE_PUNCH/Hitbox" index="0"]
+position = Vector2( 81.5, -158.5 )
+shape = SubResource( 33 )
+
+[node name="TRIPLE_PUNCH" type="Node2D" parent="Flip/Moveset"]
+script = ExtResource( 14 )
+
+[node name="Hitbox" parent="Flip/Moveset/TRIPLE_PUNCH" groups=["PUNCH"] instance=ExtResource( 2 )]
+
+[node name="Collider" parent="Flip/Moveset/TRIPLE_PUNCH/Hitbox" index="0"]
+position = Vector2( 81.5, -158.5 )
+shape = SubResource( 34 )
+
 [node name="KICK" type="Node2D" parent="Flip/Moveset"]
 script = ExtResource( 12 )
 
@@ -813,7 +799,6 @@ script = ExtResource( 12 )
 [node name="Collider" parent="Flip/Moveset/KICK/Hitbox" index="0"]
 position = Vector2( 109, -42 )
 shape = SubResource( 7 )
-disabled = true
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
@@ -852,4 +837,6 @@ player_path = NodePath("../../..")
 [connection signal="animation_finished" from="Animator" to="." method="_on_Animator_animation_finished"]
 
 [editable path="Flip/Moveset/PUNCH/Hitbox"]
+[editable path="Flip/Moveset/DOUBLE_PUNCH/Hitbox"]
+[editable path="Flip/Moveset/TRIPLE_PUNCH/Hitbox"]
 [editable path="Flip/Moveset/KICK/Hitbox"]

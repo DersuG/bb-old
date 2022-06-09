@@ -4,8 +4,8 @@
 [ext_resource path="res://paint.net/punching_bag.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 23.9964
-height = 69.9999
+radius = 32.0
+height = 46.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 40.0
@@ -19,11 +19,11 @@ position = Vector2( 0, -107 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 5 )
-rotation = 1.57089
+position = Vector2( 1, -3 )
+rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." groups=["TYPE_HURTBOX"]]
 position = Vector2( -1, -154 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
