@@ -1,18 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://paint.net/dojo_bg.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Character/Character.tscn" type="PackedScene" id=3]
-[ext_resource path="res://paint.net/punching_bag.png" type="Texture" id=4]
-[ext_resource path="res://Punching_Bag.gd" type="Script" id=5]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 23.9964
-height = 69.9999
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 40.0
-height = 134.0
+[ext_resource path="res://Punching_Bag.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -39,24 +30,5 @@ position = Vector2( 0, -272 )
 current = true
 smoothing_enabled = true
 
-[node name="Punching_Bag" type="StaticBody2D" parent="Gameplay/YSort"]
-position = Vector2( 608, 288 )
-script = ExtResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="Gameplay/YSort/Punching_Bag"]
-position = Vector2( 0, -107 )
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/YSort/Punching_Bag"]
-position = Vector2( 0, 5 )
-rotation = 1.57089
-shape = SubResource( 1 )
-
-[node name="Hurtbox" type="Area2D" parent="Gameplay/YSort/Punching_Bag"]
-position = Vector2( -1, -154 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/YSort/Punching_Bag/Hurtbox"]
-position = Vector2( 6, 9 )
-shape = SubResource( 2 )
-
-[connection signal="area_entered" from="Gameplay/YSort/Punching_Bag/Hurtbox" to="Gameplay/YSort/Punching_Bag" method="_on_Hurtbox_area_entered"]
+[node name="Punching_Bag" parent="Gameplay/YSort" instance=ExtResource( 4 )]
+position = Vector2( 582, 237 )
