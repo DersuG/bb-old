@@ -125,3 +125,4 @@ func was_input_down(input: String) -> bool:
 		if input_buffer[0] == "none":
 			if input_buffer[1] == input: return true
 	return false
+	

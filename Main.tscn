@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://paint.net/dojo_bg.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Character/Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://paint.net/punching_bag.png" type="Texture" id=4]
+[ext_resource path="res://Punching_Bag.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 23.9964
+height = 69.9999
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 40.0
+height = 134.0
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -19,10 +29,34 @@ texture = ExtResource( 1 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gameplay/Stage/StaticBody2D"]
 polygon = PoolVector2Array( -960, 544, -960, 304, -644, -42, 656, -43, 960, 280, 960, 544, -960, 544, -960, 640, 1088, 640, 1088, -640, -1088, -640, -1088, 640, -960, 640 )
 
-[node name="Character" parent="Gameplay" instance=ExtResource( 3 )]
+[node name="YSort" type="YSort" parent="Gameplay"]
+
+[node name="Character" parent="Gameplay/YSort" instance=ExtResource( 3 )]
 position = Vector2( 0, 272 )
 
-[node name="Camera" type="Camera2D" parent="Gameplay/Character"]
+[node name="Camera" type="Camera2D" parent="Gameplay/YSort/Character"]
 position = Vector2( 0, -272 )
 current = true
 smoothing_enabled = true
+
+[node name="Punching_Bag" type="StaticBody2D" parent="Gameplay/YSort"]
+position = Vector2( 608, 288 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Gameplay/YSort/Punching_Bag"]
+position = Vector2( 0, -107 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/YSort/Punching_Bag"]
+position = Vector2( 0, 5 )
+rotation = 1.57089
+shape = SubResource( 1 )
+
+[node name="Hurtbox" type="Area2D" parent="Gameplay/YSort/Punching_Bag"]
+position = Vector2( -1, -154 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/YSort/Punching_Bag/Hurtbox"]
+position = Vector2( 6, 9 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="Gameplay/YSort/Punching_Bag/Hurtbox" to="Gameplay/YSort/Punching_Bag" method="_on_Hurtbox_area_entered"]
