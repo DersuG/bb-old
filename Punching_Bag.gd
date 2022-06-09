@@ -19,5 +19,4 @@ func punch_hit():
 func hit(damage: float):
 	var text = floatingtext.instance()
 	text.amount = damage
-	print(text.amount)
 	get_node("Position2D").add_child(text)

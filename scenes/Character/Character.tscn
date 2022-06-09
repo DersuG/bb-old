@@ -114,7 +114,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.266667, 0.3, 0.333333, 0.366667 ),
+"times": PoolRealArray( 0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.3, 0.333333, 0.366667, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 3, 2, 1, 0 ]
@@ -126,7 +126,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.2 ),
+"times": PoolRealArray( 0.133333 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -410,7 +410,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.266667, 0.3, 0.333333, 0.366667 ),
+"times": PoolRealArray( 0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.3, 0.333333, 0.366667, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 3, 2, 1, 0 ]
@@ -422,7 +422,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.2 ),
+"times": PoolRealArray( 0.133333 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -672,7 +672,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.2 ),
+"times": PoolRealArray( 0.133333 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -797,7 +797,7 @@ script = ExtResource( 12 )
 [node name="Hitbox" parent="Flip/Moveset/KICK" groups=["KICK"] instance=ExtResource( 2 )]
 
 [node name="Collider" parent="Flip/Moveset/KICK/Hitbox" index="0"]
-position = Vector2( 131, -177 )
+position = Vector2( 128, -177 )
 shape = SubResource( 7 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
