@@ -1,0 +1,1 @@
+use Avi4Bmp to convert exported gifs from Pivot Animator to sprite sheets. Then, use paint.net's Unblend plugin to remove the background.
