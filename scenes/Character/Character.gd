@@ -43,7 +43,10 @@ func _physics_process(delta: float) -> void:
 	if fsm.get_current_node() == "IDLE":
 		if Input.is_action_pressed("left"):
 			movement_vec += Vector2.LEFT
+			is_facing_right = false
 		if Input.is_action_pressed("right"):
+			if is_facing_right != true:
+				is_facing_right = true
 			movement_vec += Vector2.RIGHT
 		if Input.is_action_pressed("up"):
 			movement_vec += Vector2.UP
@@ -56,7 +59,7 @@ func _physics_process(delta: float) -> void:
 		if not is_collider_facing_right:
 			$Collider.position.x *= -1
 			is_collider_facing_right = true
-	else:
+	elif is_facing_right != true:
 		flip.scale.x = -1
 		if is_collider_facing_right:
 			$Collider.position.x *= -1
