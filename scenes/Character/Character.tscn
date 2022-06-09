@@ -326,6 +326,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0 ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Flip/Moveset/KICK/Hitbox/Collider:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.166667, 0.533333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "PUNCH"
@@ -754,7 +766,7 @@ states/TRIPLE_PUNCH/node = SubResource( 21 )
 states/TRIPLE_PUNCH/position = Vector2( 574, 307 )
 transitions = [ "IDLE", "PUNCH", SubResource( 12 ), "IDLE", "KICK", SubResource( 13 ), "KICK", "IDLE", SubResource( 15 ), "PUNCH", "DOUBLE_PUNCH", SubResource( 22 ), "DOUBLE_PUNCH", "TRIPLE_PUNCH", SubResource( 23 ), "TRIPLE_PUNCH", "IDLE", SubResource( 25 ), "PUNCH", "IDLE", SubResource( 27 ), "DOUBLE_PUNCH", "IDLE", SubResource( 28 ) ]
 start_node = "IDLE"
-graph_offset = Vector2( -60, 83 )
+graph_offset = Vector2( -60, 208.136 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
@@ -787,7 +799,7 @@ character_path = NodePath("../..")
 [node name="PUNCH" type="Node2D" parent="Flip/Moveset"]
 script = ExtResource( 11 )
 
-[node name="Hitbox" parent="Flip/Moveset/PUNCH" instance=ExtResource( 2 )]
+[node name="Hitbox" parent="Flip/Moveset/PUNCH" groups=["PUNCH"] instance=ExtResource( 2 )]
 
 [node name="Collider" parent="Flip/Moveset/PUNCH/Hitbox" index="0"]
 position = Vector2( 81.5, -158.5 )
@@ -796,7 +808,7 @@ shape = SubResource( 2 )
 [node name="KICK" type="Node2D" parent="Flip/Moveset"]
 script = ExtResource( 12 )
 
-[node name="Hitbox" parent="Flip/Moveset/KICK" instance=ExtResource( 2 )]
+[node name="Hitbox" parent="Flip/Moveset/KICK" groups=["KICK"] instance=ExtResource( 2 )]
 
 [node name="Collider" parent="Flip/Moveset/KICK/Hitbox" index="0"]
 position = Vector2( 109, -42 )
