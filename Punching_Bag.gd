@@ -36,5 +36,6 @@ func punch_hit():
 func hit(damage: float, kb: Vector2 = Vector2.ZERO):
 	var text = floatingtext.instance()
 	text.amount = damage
-	get_node("Position2D").add_child(text)
+	text.global_position = get_node("Position2D").global_position
+	get_parent().add_child(text)
 	knockback += kb
