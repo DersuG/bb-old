@@ -773,7 +773,8 @@ graph_offset = Vector2( -60, 83 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=41]
 
-[node name="Player 2" type="KinematicBody2D"]
+[node name="Player2" type="KinematicBody2D"]
+position = Vector2( -88, -21 )
 script = ExtResource( 13 )
 
 [node name="Collider" type="CollisionShape2D" parent="."]
