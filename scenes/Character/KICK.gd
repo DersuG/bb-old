@@ -21,4 +21,4 @@ func start():
 # Call via animation every frame that the hitbox should actually hit.
 func hit():
 	for area in hitbox.get_hit():
-		area.get_parent().hit(10)
+		area.get_parent().hit(10, Vector2(30 * character.get_facing_sign(), 0))

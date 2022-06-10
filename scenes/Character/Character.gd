@@ -125,4 +125,11 @@ func was_input_down(input: String) -> bool:
 		if input_buffer[0] == "none":
 			if input_buffer[1] == input: return true
 	return false
-	
+
+# Returns 1 or -1 depending on the facing direction. This is useful for flipping
+# coordinates or other stuff (ie attack knockback).
+func get_facing_sign() -> int:
+	if is_facing_right:
+		return 1
+	else:
+		return -1
