@@ -40,8 +40,9 @@ func hit(damage: float, kb: Vector2 = Vector2.ZERO):
 	var text = floatingtext.instance()
 	text.amount = damage
 	health -= damage
+	$AnimationPlayer.play("Hit")
 	text.global_position = get_node("Position2D").global_position
 	get_parent().add_child(text)
 	knockback += kb
 	if health <= 0:
-		self.queue_free()
+		$AnimationPlayer.play("dead")
