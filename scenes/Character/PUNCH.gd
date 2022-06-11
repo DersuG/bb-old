@@ -11,7 +11,7 @@ func init():
 
 func validate() -> bool:
 	if character.fsm.get_current_node() == "IDLE":
-		if character.was_input_down("punch_1"):
+		if character.was_input_down("punch"):
 			return true
 	return false
 

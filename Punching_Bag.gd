@@ -6,6 +6,9 @@ var air_height := 0.0		# Height above the ground. Positive is up.
 var ground_height := 0.0	# Y coordinate of the ground.
 var knockback := Vector2.ZERO
 
+var health = 60
+
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -36,6 +39,9 @@ func punch_hit():
 func hit(damage: float, kb: Vector2 = Vector2.ZERO):
 	var text = floatingtext.instance()
 	text.amount = damage
+	health -= damage
 	text.global_position = get_node("Position2D").global_position
 	get_parent().add_child(text)
 	knockback += kb
+	if health <= 0:
+		self.queue_free()

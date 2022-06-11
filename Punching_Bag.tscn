@@ -15,22 +15,24 @@ height = 134.0
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -107 )
+position = Vector2( 0.5, -120 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, -3 )
+position = Vector2( 1.5, -16 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["TYPE_HURTBOX"]]
-position = Vector2( -1, -154 )
+position = Vector2( -0.5, -167 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( 6, 9 )
 shape = SubResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 0, -276 )
+position = Vector2( 0.5, -289 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
