@@ -10,7 +10,7 @@ func init():
 
 func validate() -> bool:
 	if character.fsm.get_current_node() == "IDLE":
-		if character.was_input_down("kick"):
+		if character.was_input_down("kick_1"):
 			return true
 	return false
 
